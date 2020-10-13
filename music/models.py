@@ -8,6 +8,9 @@ class Album(models.Model):
     genre = models.CharField(max_length=100)
     album_logo = models.CharField(max_length=1000)
 
+    def __str__(self): #string repr of this object
+        return self.album_title + ' - ' + self.artist
+
 class Song(models.Model): #we need our song to be a part of any album
     #we need to link these two classes together
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
