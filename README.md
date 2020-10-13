@@ -1,2 +1,2 @@
 # django-apps
-# adding small apps to home page
+### adding small apps to home page
