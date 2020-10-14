@@ -4,5 +4,5 @@ from . import views #look for views.py in the same directory
 urlpatterns = [
     #/music/
     path('', views.index, name='index'), #index is the home page of the section in views.py
-    path('<int:id>/', views.detail, name='detail'),
+    path('<int:id>/', views.detail, name='detail'), #name is used to remove hardcoded urls
 ]
