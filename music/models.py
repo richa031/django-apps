@@ -17,6 +17,8 @@ class Song(models.Model): #we need our song to be a part of any album
     file_type = models.CharField(max_length=10)
     song_title = models.CharField(max_length=250)
 
+    def __str__(self): #string repr of this object
+        return self.song_title
 
 
 
