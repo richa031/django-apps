@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 #take all the requests and sends back an http response
+from django.http import Http404 
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -13,6 +14,10 @@ def index(request):
     return render(request, 'music/index.html', context) #shortcut to render template
 
 def detail(request, id):
-    return HttpResponse("<h2>Details for Album id: " + str(id) + "</h2>")
+    try:
+        album = Album.objects.get(pk=id)
+    except Album.DoesNotExist:
+        raise Http404("Album does not exist")
+    return render(request, 'music/detail.html', {'album': album})
 
 
