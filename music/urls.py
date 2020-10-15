@@ -5,9 +5,7 @@ app_name = 'music' #namespacing urls
 
 urlpatterns = [
     #/music/
-    path('', views.index, name='index'), #index is the home page of the section in views.py
+    path('', views.IndexView.as_view(), name='index'), #index is the home page of the section in views.py
     #/music/<album_id>/
-    path('<int:id>/', views.detail, name='detail'), #name is used to remove hardcoded urls
-    #music/<album_id>/favorite/
-    path('<int:id>/favorite/', views.favorite, name='favorite'), #some urls return a functionality like login 
+    path('<pk>/', views.DetailView.as_view(), name='detail'), #name is used to remove hardcoded urls
 ]
